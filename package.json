@@ -10,7 +10,8 @@
     "watch": "npx babel src --out-dir dist --extensions .ts --watch",
     "start": "npm run build && node dist/test.js",
     "start:nodemon": "npx nodemon dist/test.js",
-    "dev": "concurrently \"npm:watch\" \"npm:start:nodemon\""
+    "dev": "concurrently \"npm:watch\" \"npm:start:nodemon\"",
+    "publish": "npm run build && npm publish"
   },
   "keywords": [],
   "author": "",
