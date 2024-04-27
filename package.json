@@ -1,14 +1,26 @@
 {
-  "name": "data-structures",
-  "version": "1.0.0",
+  "name": "@deepeshgupta/data-structures",
+  "version": "0.0.1",
   "description": "",
-  "main": "app.js",
-  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "npx nodemon app.js"
+    "build:compile": "npx babel src --out-dir dist --extensions .ts",
+    "build:types": "tsc",
+    "build": "npm run build:types && npm run build:compile",
+    "watch": "npx babel src --out-dir dist --extensions .ts --watch",
+    "start": "npm run build && node dist/test.js",
+    "start:nodemon": "npx nodemon dist/test.js",
+    "dev": "concurrently \"npm:watch\" \"npm:start:nodemon\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-typescript": "^7.24.1",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.5"
+  }
 }
